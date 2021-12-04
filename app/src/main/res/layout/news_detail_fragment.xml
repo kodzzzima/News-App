@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.newsDetail.NewsDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="3"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Новость" />
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_title"
+            tools:src="@drawable/ic_image" />
+
+
+        <TextView
+            android:id="@+id/detail_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_image"
+            tools:text="A woman on Fourth Avenue told police she was given a ride from 1516 E 49th St. by an unknown male to 3424 Rossville Blvd. She said that once there, the male driver exited the car and told her his girlfriend, a white female, would be driving her to Bradley County. The woman had previously sustained" />
+
+        <TextView
+            android:id="@+id/detail_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="more..."
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_description" />
+
+        <TextView
+            android:id="@+id/detail_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/app_margin_padding_extra_large"
+            android:layout_marginTop="@dimen/app_margin_padding_medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/app_margin_padding_medium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_more"
+            tools:text="chattanoogan" />
+
+        <TextView
+            android:id="@+id/detail_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/app_margin_padding_extra_large"
+            android:layout_marginTop="@dimen/app_margin_padding_medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/app_margin_padding_medium"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_more"
+            tools:text="2021-12-04 00:00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
