@@ -14,6 +14,8 @@ import com.example.latestnews.util.underline
 import dagger.hilt.android.AndroidEntryPoint
 import android.content.Intent
 import android.net.Uri
+import androidx.navigation.fragment.findNavController
+import com.example.latestnews.presentation.latestNews.LatestNewsFragment
 
 
 @AndroidEntryPoint
@@ -44,6 +46,9 @@ class NewsDetailFragment : Fragment(R.layout.news_detail_fragment) {
                     detailTime.text = detailedNewsResult.result.published.substring(0, 16)
 
                     detailImage.loadFromUrl(detailedNewsResult.result.image)
+                    detailImage.setOnClickListener {
+                        openImages(arrayOf(detailedNewsResult.result.image))
+                    }
 
                     detailMore.underline()
                     detailMore.setOnClickListener {
@@ -56,9 +61,22 @@ class NewsDetailFragment : Fragment(R.layout.news_detail_fragment) {
         }
     }
 
+    private fun openImages(images: Array<String>) {
+        val bundle = Bundle()
+        bundle.apply {
+            putStringArray(URL_IMAGES_ARRAY, images)
+        }
+
+        findNavController().navigate(R.id.action_newsDetailFragment_to_imageGalleryFragment, bundle)
+    }
+
     private fun openUrl(url: String) {
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         requireActivity().startActivity(i)
+    }
+
+    companion object {
+        const val URL_IMAGES_ARRAY = "URL_IMAGES_ARRAY"
     }
 }

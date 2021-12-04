@@ -12,11 +12,23 @@
         tools:layout="@layout/latest_news_fragment" >
         <action
             android:id="@+id/action_latestNewsFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
+            app:destination="@id/newsDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.example.latestnews.presentation.newsDetail.NewsDetailFragment"
         android:label="news_detail_fragment"
-        tools:layout="@layout/news_detail_fragment" />
+        tools:layout="@layout/news_detail_fragment" >
+        <action
+            android:id="@+id/action_newsDetailFragment_to_imageGalleryFragment"
+            app:destination="@id/imageGalleryFragment"
+            app:enterAnim="@anim/zoom_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageGalleryFragment"
+        android:name="com.example.latestnews.presentation.imageGallery.ImageGalleryFragment"
+        android:label="fragment_image_gallery"
+        tools:layout="@layout/fragment_image_gallery" />
 </navigation>

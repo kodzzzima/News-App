@@ -37,6 +37,7 @@ class LatestNewsFragment : Fragment(R.layout.latest_news_fragment) {
     }
 
     private fun setupSwipeContainer() {
+        binding.swipeContainer.setColorSchemeResources(R.color.red)
         binding.swipeContainer.setOnRefreshListener {
             viewModel.getNewsList()
         }

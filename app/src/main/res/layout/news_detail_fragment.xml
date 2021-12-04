@@ -10,13 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="@dimen/app_margin_padding_extra_large"
+            android:layout_marginTop="@dimen/app_margin_padding_medium"
             android:ellipsize="end"
             android:gravity="center"
             android:lines="3"
@@ -32,21 +31,21 @@
             android:id="@+id/detail_image"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:padding="10dp"
+            android:padding="@dimen/app_margin_padding_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_title"
-            tools:src="@drawable/ic_image" />
+            tools:ignore="ContentDescription" />
 
 
         <TextView
             android:id="@+id/detail_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="@dimen/app_margin_padding_large"
+            android:layout_marginTop="@dimen/app_margin_padding_small"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="@dimen/app_margin_padding_medium"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +56,8 @@
             android:id="@+id/detail_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="more..."
+            android:layout_marginEnd="@dimen/app_margin_padding_large"
+            android:text="@string/more"
             android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_description" />
@@ -87,8 +86,8 @@
             android:maxLines="1"
             android:paddingBottom="@dimen/app_margin_padding_medium"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_more"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_author"
             tools:text="2021-12-04 00:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
