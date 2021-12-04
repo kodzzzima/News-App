@@ -59,6 +59,7 @@
             android:layout_marginEnd="@dimen/app_margin_padding_large"
             android:text="@string/more"
             android:textColor="@color/blue"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_description" />
 
@@ -83,10 +84,12 @@
             android:layout_marginHorizontal="@dimen/app_margin_padding_extra_large"
             android:layout_marginTop="@dimen/app_margin_padding_medium"
             android:lines="1"
+            android:textStyle="bold"
             android:maxLines="1"
             android:paddingBottom="@dimen/app_margin_padding_medium"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_author"
             tools:text="2021-12-04 00:00" />
 

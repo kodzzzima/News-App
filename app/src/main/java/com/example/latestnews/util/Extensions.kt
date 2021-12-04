@@ -19,6 +19,7 @@ fun ImageView.loadFromUrl(url: String?) =
         .load(url)
         .error(R.drawable.placeholder)
         .placeholder(R.drawable.placeholder)
+        .centerInside()
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
 

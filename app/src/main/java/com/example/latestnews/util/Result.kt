@@ -27,6 +27,12 @@ inline fun <S, E, R> Result<S, E>.mapSuccess(block: (S) -> R): Result<R, E> =
         is Result.Error -> Result.Error(result = this.result)
     }
 
+inline fun <S, E, R> Result<S, E>.mapError(block: (E) -> R): Result<S, R> =
+    when (this) {
+        is Result.Success -> Result.Success(result = this.result)
+        is Result.Error -> Result.Error(result = block(this.result))
+    }
+
 inline fun <S, E> Result<S, E>.doOnSuccess(block: (S) -> Unit): Result<S, E> {
     if (this is Result.Success) {
         block(this.result)

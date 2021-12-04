@@ -1,5 +1,6 @@
 package com.example.latestnews.data
 
+import android.util.Log
 import com.example.latestnews.data.local.NewsLocalDataSource
 import com.example.latestnews.data.remote.NewsRemoteDataSource
 import com.example.latestnews.domain.news.ItemNews
@@ -8,7 +9,9 @@ import com.example.latestnews.domain.news.toItemNews
 import com.example.latestnews.domain.news.toNewsModel
 import com.example.latestnews.util.Result
 import com.example.latestnews.util.doOnSuccess
+import com.example.latestnews.util.mapError
 import com.example.latestnews.util.mapSuccess
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import java.lang.NumberFormatException
 import javax.inject.Inject
 
@@ -31,7 +34,12 @@ class NewsRepositoryImpl @Inject constructor(
 
     override suspend fun getNewsDetails(id: String): Result<News, Throwable> {
         val cashedNews = localDataSource.getById(id)
-        val entityResult = Result.Success(cashedNews)
-        return entityResult.mapSuccess { entity -> entity!!.toNewsModel() }
+        return if (cashedNews != null) {
+            val entityResult = Result.Success(cashedNews)
+            entityResult.mapSuccess { entity -> entity.toNewsModel() }
+        } else {
+            val entityResult = Result.Error(cashedNews)
+            entityResult.mapError { NullPointerException() }
+        }
     }
 }

@@ -36,7 +36,7 @@ class NewsDetailViewModel @Inject constructor(
 
     private suspend fun handleNewsDetail(id: String): DetailedNewsResult {
         return when (val result = newsRepository.getNewsDetails(id)) {
-            is Result.Error -> DetailedNewsResult.ErrorResult(result.result)
+            is Result.Error -> DetailedNewsResult.ErrorResult(e = NullPointerException("error database"))
             is Result.Success -> DetailedNewsResult.SuccessResult(result.result)
         }
     }
